@@ -17,12 +17,29 @@ public class Student {
             if (map.containsKey(p)) {
                 break;
             }
-            t = t.father;
+            p = p.father;
         }
         return p;
     }
 
     public static void main(String[] args) {
+        Node node = new Node();
+        node.value = "node";
+        Node node2 = new Node();
+        node2.value = "node2";
+        Node node3 = new Node();
+        node3.value = "node3";
+        Node node4 = new Node();
+        node4.value = "node4";
+        Node node5 = new Node();
+        node5.value = "node5";
+        node5.father = node2;
+        node4.father = node2;
+        node2.father = node;
+        node3.father = node;
 
+        Student student = new Student();
+        Node leader = student.findLeader(node4, node3);
+        System.out.println(leader.value);
     }
 }
